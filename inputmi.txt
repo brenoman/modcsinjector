@@ -1,2 +1,2 @@
 nome servico, comando para verificacao do servico, comando para derrubar o servico, comando para levantar o servico, taxa de falha do servico, taxa de reparo do servico,
-"mysql", 'resultado=`/usr/sbin/service mysql status | /bin/grep Active | /usr/bin/cut -b 12-17`; if [ "$resultado" = "active" ]; then resultado=1; echo 1; else resultado=0; echo 0; fi;', "/usr/sbin/service mysql stop", "/usr/sbin/service mysql start", 20, 5
+"mysql", if systemctl status networking.service | grep 'Active: active' > /dev/null;then echo "1";fi # :}, "/usr/sbin/service mysql stop", "/usr/sbin/service mysql start", 20, 5
